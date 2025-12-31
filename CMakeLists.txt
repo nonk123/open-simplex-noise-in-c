@@ -4,7 +4,7 @@ project(open-simplex-noise-in-c)
 
 option(OSN_BUILD_TEST "Build the test binary?" OFF)
 set(OSN_FLOAT_TYPE double CACHE STRING
-  "Floating-point type to use for caclulating noise functions.")
+  "Floating-point type to use for calculating noise functions.")
 
 add_library(open-simplex-noise-in-c
   ${CMAKE_CURRENT_SOURCE_DIR}/open-simplex-noise.c
