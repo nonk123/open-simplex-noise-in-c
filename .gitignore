@@ -3,3 +3,7 @@ open-simplex-noise-test
 open-simplex-noise.o
 *.png
 
+/.cache*
+/build*
+/__cmake*
+compile_commands.json
