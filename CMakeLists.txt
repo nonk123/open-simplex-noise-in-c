@@ -3,16 +3,16 @@ cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 project(open-simplex-noise-in-c)
 
 option(OSN_BUILD_TEST "Build the test binary?" OFF)
-set(OSN_FLOAT_TYPE double CACHE STRING
-  "Floating-point type to use for calculating noise functions.")
 
 add_library(open-simplex-noise-in-c
   ${CMAKE_CURRENT_SOURCE_DIR}/open-simplex-noise.c
   ${CMAKE_CURRENT_SOURCE_DIR}/open-simplex-noise.h)
 target_include_directories(open-simplex-noise-in-c
   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-target_compile_definitions(open-simplex-noise-in-c
-  PUBLIC OSNFLOAT=${OSN_FLOAT_TYPE})
+if (OSN_FLOAT_TYPE)
+  target_compile_definitions(open-simplex-noise-in-c
+    PUBLIC OSNFLOAT=${OSN_FLOAT_TYPE})
+endif()
 
 if (OSN_BUILD_TEST)
   find_package(ZLIB REQUIRED) # PNG dependency
